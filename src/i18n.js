@@ -24,6 +24,17 @@ function t(key, ...subs) {
   return key;
 }
 
+// id="version" の要素に manifest のバージョンを入れる
+function showVersion() {
+  const el = document.getElementById("version");
+  if (!el) return;
+  try {
+    el.textContent = `v${browser.runtime.getManifest().version}`;
+  } catch {
+    /* manifest が読めない環境では何も出さない */
+  }
+}
+
 function localizeDocument() {
   try {
     const ui = (browser.i18n.getUILanguage() || "").toLowerCase();
@@ -44,4 +55,6 @@ function localizeDocument() {
     const message = t(el.dataset.i18nLabel);
     if (message !== el.dataset.i18nLabel) el.setAttribute("aria-label", message);
   }
+
+  showVersion();
 }

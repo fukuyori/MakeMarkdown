@@ -65,12 +65,18 @@ Firefox:
 about:debugging#/runtime/this-firefox → 「一時的なアドオンを読み込む」→ manifest.json
 ```
 
-Chrome (`manifest.chrome.json` を `manifest.json` として読ませるため、
-`sh tools/build.sh chrome` で作った `dist/chrome/` を読み込みます):
+Chrome:
 
 ```
+sh tools/build.sh chrome
 chrome://extensions → 「デベロッパー モード」→ 「パッケージ化されていない拡張機能を読み込む」→ dist/chrome
 ```
+
+> **リポジトリ直下を Chrome に読み込まないこと。** 直下の `manifest.json` は Firefox 用で、
+> `background.scripts` を使っています。Chrome はこれを警告として扱うため拡張機能自体は
+> 読み込まれますが、**バックグラウンドが動かず、ツールバーのボタンを押しても無反応**になります
+> (`'background.scripts' requires manifest version of 2 or lower.`)。
+> Chrome では必ず `dist/chrome` を読み込んでください。
 
 `web-ext` を使う場合:
 

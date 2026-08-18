@@ -93,13 +93,19 @@
     });
   }
 
+  // 応答が返らないサイトで変換が終わらなくならないよう、必ず打ち切る
+  const FETCH_TIMEOUT_MS = 5000;
+
   async function fetchOriginal() {
     if (!/^https?:/.test(location.href)) return null;
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
     try {
       const res = await fetch(location.href, {
         credentials: "include",
         cache: "force-cache",
         redirect: "follow",
+        signal: controller.signal,
       });
       if (!res.ok) return null;
       const type = res.headers.get("content-type") || "";
@@ -107,6 +113,8 @@
       return await res.text();
     } catch {
       return null;
+    } finally {
+      clearTimeout(timer);
     }
   }
 

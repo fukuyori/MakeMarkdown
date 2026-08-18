@@ -107,6 +107,9 @@ SAMPLE.en = {
 
 /* ---------------- デモページの作成 ---------------- */
 
+const manifestVersion = () =>
+  JSON.parse(fs.readFileSync(path.join(ROOT, "manifest.json"), "utf8")).version;
+
 const messages = (locale) =>
   JSON.parse(fs.readFileSync(path.join(ROOT, "_locales", locale, "messages.json"), "utf8"));
 
@@ -115,6 +118,7 @@ function stub(locale, doc, settings) {
 <script>
 // スクリーンショット用のスタブ (拡張機能の API をサンプルデータで置き換える)
 (() => {
+  const MANIFEST_VERSION = ${JSON.stringify(manifestVersion())};
   const MESSAGES = ${JSON.stringify(messages(locale))};
   const DOC = ${JSON.stringify(doc)};
   const SETTINGS = ${JSON.stringify(settings)};
@@ -135,18 +139,22 @@ function stub(locale, doc, settings) {
       session: { get: async (key) => ({ [key]: DOC }) },
     },
     permissions: { contains: async () => false, request: async () => false, remove: async () => {} },
-    runtime: { sendMessage: async () => {} },
+    runtime: { sendMessage: async () => {}, getManifest: () => ({ version: MANIFEST_VERSION }) },
   };
 })();
 </script>
 `;
 }
 
-function demoPage(page, locale, doc, settings) {
+function demoPage(page, locale, doc, settings, openPanel) {
   const html = fs.readFileSync(path.join(ROOT, page), "utf8");
   const marker = '<script src="src/i18n.js"></script>';
   if (!html.includes(marker)) throw new Error(`${page} に ${marker} がありません`);
-  return html.replace(marker, stub(locale, doc, settings) + marker);
+  // 表示設定パネルを開いた状態も見せたいので、撮影用にボタンを押しておく
+  const open = openPanel
+    ? '\n<script>addEventListener("load", () => setTimeout(() => document.getElementById("btn-panel").click(), 200));</script>'
+    : "";
+  return html.replace(marker, stub(locale, doc, settings) + marker) + open;
 }
 
 /* ---------------- 実行 ---------------- */
@@ -165,7 +173,7 @@ for (const item of ["viewer.css", "options.css", "viewer.js", "options.js", "src
 fs.mkdirSync(OUT, { recursive: true });
 
 const SHOTS = [
-  { name: "1-viewer", page: "viewer.html", query: "?id=demo", settings: { view: "preview", theme: "light" } },
+  { name: "1-viewer", page: "viewer.html", query: "?id=demo", settings: { view: "preview", theme: "light" }, openPanel: true },
   { name: "2-markdown", page: "viewer.html", query: "?id=demo", settings: { view: "source", theme: "dark" } },
   { name: "3-options", page: "options.html", query: "", settings: {} },
 ];
@@ -173,7 +181,7 @@ const SHOTS = [
 for (const locale of ["ja", "en"]) {
   for (const shot of SHOTS) {
     const file = path.join(DEMO, `${locale}-${shot.name}.html`);
-    fs.writeFileSync(file, demoPage(shot.page, locale, SAMPLE[locale], shot.settings));
+    fs.writeFileSync(file, demoPage(shot.page, locale, SAMPLE[locale], shot.settings, shot.openPanel));
 
     const out = path.join(OUT, `makemarkdown-${locale}-${shot.name}-1280x800.png`);
     execFileSync(

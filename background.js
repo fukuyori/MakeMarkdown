@@ -68,19 +68,48 @@ function describeError(error, tab) {
   return t("errReadFailed", (error && error.message) || error);
 }
 
+// 変換が終わらないページでも必ず結果を返せるように打ち切る
+const CONVERT_TIMEOUT_MS = 20000;
+
+function withTimeout(promise, ms) {
+  let timer = null;
+  const timeout = new Promise((_resolve, reject) => {
+    timer = setTimeout(() => reject(new Error("timeout")), ms);
+  });
+  return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
+}
+
+// 押したことが分かるように、変換中はバッジを出す
+async function setBusy(tabId, busy) {
+  try {
+    await browser.action.setBadgeText({ tabId, text: busy ? "…" : "" });
+    if (busy) await browser.action.setBadgeBackgroundColor({ tabId, color: "#1f6feb" });
+  } catch {
+    /* バッジが使えない環境では何もしない */
+  }
+}
+
 async function convertTab(tab) {
   if (!tab || typeof tab.id !== "number") return;
 
+  await setBusy(tab.id, true);
   let payload;
   try {
-    const results = await browser.scripting.executeScript({
-      target: { tabId: tab.id },
-      files: EXTRACT_FILES,
-    });
+    const results = await withTimeout(
+      browser.scripting.executeScript({
+        target: { tabId: tab.id },
+        files: EXTRACT_FILES,
+      }),
+      CONVERT_TIMEOUT_MS
+    );
     payload = results && results[0] ? results[0].result : null;
     if (results && results[0] && results[0].error) throw results[0].error;
   } catch (error) {
-    payload = { ok: false, error: describeError(error, tab), url: tab.url || "", title: tab.title || "" };
+    const message =
+      error && error.message === "timeout" ? t("errTimeout") : describeError(error, tab);
+    payload = { ok: false, error: message, url: tab.url || "", title: tab.title || "" };
+  } finally {
+    await setBusy(tab.id, false);
   }
 
   if (!payload) {
@@ -97,15 +126,32 @@ async function convertTab(tab) {
 }
 
 browser.action.onClicked.addListener((tab) => {
-  convertTab(tab).catch((e) => console.error("MakeMarkdown:", e));
+  convertTab(tab).catch((e) => reportFailure(tab, e));
 });
+
+// convertTab 自体が失敗したときも、黙って何も起きないままにはしない
+async function reportFailure(tab, error) {
+  console.error("MakeMarkdown:", error);
+  try {
+    await setBusy(tab && tab.id, false);
+    const id = await saveDocument({
+      ok: false,
+      error: describeError(error, tab),
+      url: (tab && tab.url) || "",
+      title: (tab && tab.title) || "",
+    });
+    await browser.tabs.create({ url: browser.runtime.getURL(`viewer.html?id=${encodeURIComponent(id)}`) });
+  } catch (e) {
+    console.error("MakeMarkdown:", e);
+  }
+}
 
 // commands は Firefox for Android など一部の環境に無い
 if (browser.commands) {
   browser.commands.onCommand.addListener(async (command) => {
     if (command !== "make-markdown") return;
     const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
-    if (tab) convertTab(tab).catch((e) => console.error("MakeMarkdown:", e));
+    if (tab) convertTab(tab).catch((e) => reportFailure(tab, e));
   });
 }
 

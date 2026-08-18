@@ -205,6 +205,11 @@ button.primary {
   white-space: nowrap;
 }
 
+/* バージョンはパネルのいちばん右に寄せる */
+.panel-version {
+  margin-left: auto;
+}
+
 .panel output {
   color: var(--muted);
   min-width: 4em;

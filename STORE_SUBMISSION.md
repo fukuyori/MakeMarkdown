@@ -15,6 +15,10 @@ dist/makemarkdown-0.1.0-chrome.zip
 Chrome 版は `manifest.chrome.json` を `manifest.json` として同梱します。Firefox 専用の
 `browser_specific_settings` を含まず、バックグラウンドは `service_worker` です。
 
+動作確認のときも、Chrome に読み込むのは `dist/chrome` です。リポジトリ直下を読み込むと
+Firefox 用の `background.scripts` が警告になり、バックグラウンドが動かないまま
+「アイコンを押しても無反応」になります。
+
 ## デベロッパーアカウント
 
 <https://chrome.google.com/webstore/devconsole>

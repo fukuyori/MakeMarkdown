@@ -39,6 +39,12 @@ h1 {
   margin: 0 0 12px;
 }
 
+h1 .version {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 400;
+}
+
 h2 {
   font-size: 15px;
   margin: 32px 0 12px;

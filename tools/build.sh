@@ -39,7 +39,12 @@ pack() {
   find "$stage" -name ".DS_Store" -delete
 
   (cd "$stage" && zip -q -r -X "../../$out" .)
-  echo "$out ($(du -h "$out" | cut -f1 | tr -d ' ')) / $stage/"
+  echo "$out ($(du -h "$out" | cut -f1 | tr -d ' '))"
+  if [ "$target" = "chrome" ]; then
+    echo "  Chrome に読み込むのは $ROOT/$stage (リポジトリ直下ではない)"
+  else
+    echo "  Firefox は $ROOT/manifest.json をそのまま読み込める"
+  fi
 }
 
 mkdir -p dist
