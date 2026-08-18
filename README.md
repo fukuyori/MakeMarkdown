@@ -1,5 +1,7 @@
 # MakeMarkdown
 
+[English](README.en.md)
+
 表示中のページを Markdown に変換し、リーダービューのような画面で読み、`.md`
 ファイルとしてダウンロードできるブラウザ拡張機能です。Firefox と Chrome
 (Manifest V3) の両方に対応しています。
@@ -122,6 +124,7 @@ node tools/make-screenshots.mjs
 | `PRIVACY_POLICY.md` | プライバシーポリシー (AMO の入力欄に貼る用) |
 | `FIREFOX_SUBMISSION.md` / `STORE_SUBMISSION.md` | ストア登録時の入力内容と確認事項 |
 | `LICENSE` | MIT ライセンス |
+| `README.md` / `README.en.md` | 説明 (日本語 / 英語) |
 
 ## 権限
 
