@@ -1,0 +1,85 @@
+{
+  "appName": { "message": "MakeMarkdown", "description": "拡張機能名" },
+  "appDescription": {
+    "message": "表示中のページをMarkdownに変換し、リーダービュー風に表示・ダウンロードできます。",
+    "description": "拡張機能の説明"
+  },
+  "actionTitle": { "message": "このページをMarkdownに変換" },
+  "commandDescription": { "message": "このページをMarkdownに変換" },
+
+  "viewPreview": { "message": "プレビュー" },
+  "viewSource": { "message": "Markdown" },
+  "viewSwitchLabel": { "message": "表示切り替え" },
+  "btnCopy": { "message": "コピー" },
+  "btnDownload": { "message": "ダウンロード" },
+  "btnSettings": { "message": "表示設定" },
+
+  "panelTheme": { "message": "テーマ" },
+  "themeAuto": { "message": "自動" },
+  "themeLight": { "message": "ライト" },
+  "themeSepia": { "message": "セピア" },
+  "themeDark": { "message": "ダーク" },
+  "panelFont": { "message": "書体" },
+  "fontSans": { "message": "ゴシック" },
+  "fontSerif": { "message": "明朝" },
+  "panelFontSize": { "message": "文字サイズ" },
+  "panelWidth": { "message": "本文の幅" },
+  "optTitle": { "message": "タイトルを見出しとして入れる" },
+  "optSource": { "message": "出典リンクを入れる" },
+  "optFront": { "message": "フロントマターを付ける" },
+
+  "sourceSelection": { "message": "選択範囲" },
+  "sourceLive": { "message": "表示中の DOM" },
+  "sourceSettled": { "message": "表示中の DOM (読み込み完了後)" },
+  "sourceSnapshot": { "message": "本文が最も多かった時点の記録" },
+  "sourceOriginal": { "message": "サーバーから取得した元 HTML" },
+  "badgeLongest": { "message": "$1 状態から最長を採用" },
+  "badgeFallback": { "message": "本文推定に失敗しページ全体を変換" },
+  "badgeChars": { "message": "$1 文字" },
+
+  "toastCopied": { "message": "Markdown をコピーしました" },
+  "toastCopyFailed": { "message": "コピーに失敗しました" },
+  "noticeNotFound": {
+    "message": "変換結果が見つかりませんでした。ブラウザを再起動したか、結果の保持数を超えている可能性があります。もう一度ツールバーのボタンからページを変換してください。"
+  },
+  "noticeConvertFailed": { "message": "変換に失敗しました。" },
+  "noticeRenderFailed": { "message": "表示に失敗しました: $1" },
+  "viewerDocumentTitle": { "message": "$1 - Markdown" },
+  "mdSourcePrefix": { "message": "出典" },
+
+  "optionsTitle": { "message": "MakeMarkdown の設定" },
+  "optionsLead": {
+    "message": "ツールバーのボタン (Alt+Shift+M) で、表示中のページを Markdown に変換します。ページ内で文字を選択しているときは、その範囲だけを変換します。"
+  },
+  "optionsSectionTruncated": { "message": "本文が途中で切り取られるページへの対策" },
+  "optMonitorTitle": { "message": "本文が最も多かった時点を記録する" },
+  "optMonitorDesc": {
+    "message": "ページを開いた直後から本文の量を監視し、あとから JavaScript が本文を削除・折りたたみしても、いちばん内容が多かった状態を変換できるようにします。すべてのサイトを読み取る権限が必要です。"
+  },
+  "optFetchTitle": { "message": "サーバーの元 HTML も取り寄せて比べる" },
+  "optFetchDesc": {
+    "message": "変換時にページの URL をもう一度読み込み (可能ならブラウザのキャッシュから)、JavaScript が動く前の HTML と内容を比べます。読み込みが 1 回増えます。"
+  },
+  "optWaitTitle": { "message": "変換前に待つ時間" },
+  "optWaitDesc": { "message": "DOM の変化が落ち着くまで待ってから変換します (遅延読み込み対策)。" },
+  "optionsSectionOutput": { "message": "出力" },
+  "optionsOutputNote": {
+    "message": "タイトル見出し・出典リンク・フロントマターの有無は、変換結果のビューア画面の「表示設定」から切り替えられます。"
+  },
+  "statusNoPermission": { "message": "すべてのサイトを読み取る権限がないため、記録は停止しています。" },
+  "statusRecording": { "message": "記録中です。次にページを開いたときから有効になります。" },
+  "statusPermissionDenied": { "message": "権限が許可されなかったため、有効にできませんでした。" },
+  "statusLoadFailed": { "message": "設定の読み込みに失敗しました: $1" },
+  "unitSeconds": { "message": "$1 秒" },
+
+  "errInternalPage": { "message": "このページ (ブラウザの内部ページ) は変換できません。" },
+  "errStorePage": { "message": "拡張機能のストアではページを読めないため変換できません。" },
+  "errReadFailed": { "message": "ページの読み取りに失敗しました: $1" },
+  "errNoResult": { "message": "変換結果を取得できませんでした。" },
+  "errScriptLoad": { "message": "変換スクリプトの読み込みに失敗しました。" },
+  "errNoArticle": { "message": "このページから本文を取り出せませんでした。" },
+
+  "embedVideo": { "message": "動画" },
+  "embedAudio": { "message": "音声" },
+  "embedGeneric": { "message": "埋め込み" }
+}

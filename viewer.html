@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="appName">MakeMarkdown</title>
+    <link rel="stylesheet" href="viewer.css" />
+  </head>
+  <body data-theme="auto" data-font="sans" data-view="preview">
+    <header class="bar">
+      <div class="bar-left">
+        <img class="logo" src="icons/icon.svg" alt="" width="20" height="20" />
+        <span class="bar-title" id="bar-title">MakeMarkdown</span>
+        <span class="badge" id="source-badge" hidden></span>
+      </div>
+      <div class="bar-right">
+        <div class="seg" role="group" aria-label="表示切り替え" data-i18n-label="viewSwitchLabel">
+          <button type="button" class="seg-btn is-active" data-view="preview" data-i18n="viewPreview">プレビュー</button>
+          <button type="button" class="seg-btn" data-view="source" data-i18n="viewSource">Markdown</button>
+        </div>
+        <button type="button" id="btn-copy" data-i18n="btnCopy">コピー</button>
+        <button type="button" id="btn-download" class="primary" data-i18n="btnDownload">ダウンロード</button>
+        <button type="button" id="btn-panel" aria-expanded="false" data-i18n="btnSettings">表示設定</button>
+      </div>
+    </header>
+
+    <section class="panel" id="panel" hidden>
+      <div class="panel-group">
+        <span class="panel-label" data-i18n="panelTheme">テーマ</span>
+        <div class="seg" role="group">
+          <button type="button" class="seg-btn" data-theme="auto" data-i18n="themeAuto">自動</button>
+          <button type="button" class="seg-btn" data-theme="light" data-i18n="themeLight">ライト</button>
+          <button type="button" class="seg-btn" data-theme="sepia" data-i18n="themeSepia">セピア</button>
+          <button type="button" class="seg-btn" data-theme="dark" data-i18n="themeDark">ダーク</button>
+        </div>
+      </div>
+      <div class="panel-group">
+        <span class="panel-label" data-i18n="panelFont">書体</span>
+        <div class="seg" role="group">
+          <button type="button" class="seg-btn" data-font="sans" data-i18n="fontSans">ゴシック</button>
+          <button type="button" class="seg-btn" data-font="serif" data-i18n="fontSerif">明朝</button>
+        </div>
+      </div>
+      <div class="panel-group">
+        <label class="panel-label" for="font-size" data-i18n="panelFontSize">文字サイズ</label>
+        <input type="range" id="font-size" min="14" max="26" step="1" />
+        <output id="font-size-out"></output>
+      </div>
+      <div class="panel-group">
+        <label class="panel-label" for="content-width" data-i18n="panelWidth">本文の幅</label>
+        <input type="range" id="content-width" min="480" max="1100" step="20" />
+        <output id="content-width-out"></output>
+      </div>
+      <div class="panel-group panel-checks">
+        <label><input type="checkbox" id="opt-title" /> <span data-i18n="optTitle">タイトルを見出しとして入れる</span></label>
+        <label><input type="checkbox" id="opt-source" /> <span data-i18n="optSource">出典リンクを入れる</span></label>
+        <label><input type="checkbox" id="opt-front" /> <span data-i18n="optFront">フロントマターを付ける</span></label>
+      </div>
+    </section>
+
+    <main class="page">
+      <div class="doc-meta" id="doc-meta" hidden></div>
+      <article class="markdown-body" id="preview"></article>
+      <pre class="source-body" id="source"><code id="source-code"></code></pre>
+      <div class="notice" id="notice" hidden></div>
+    </main>
+
+    <div class="toast" id="toast" hidden></div>
+
+    <script src="src/i18n.js"></script>
+    <script src="src/markdown-to-html.js"></script>
+    <script src="viewer.js"></script>
+  </body>
+</html>

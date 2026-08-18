@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="optionsTitle">MakeMarkdown の設定</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <h1>
+        <img src="icons/icon.svg" alt="" width="24" height="24" /><span data-i18n="optionsTitle"
+          >MakeMarkdown の設定</span
+        >
+      </h1>
+
+      <p class="lead" data-i18n="optionsLead">
+        ツールバーのボタン (Alt+Shift+M) で、表示中のページを Markdown
+        に変換します。ページ内で文字を選択しているときは、その範囲だけを変換します。
+      </p>
+
+      <section>
+        <h2 data-i18n="optionsSectionTruncated">本文が途中で切り取られるページへの対策</h2>
+
+        <label class="row">
+          <input type="checkbox" id="monitor" />
+          <span>
+            <strong data-i18n="optMonitorTitle">本文が最も多かった時点を記録する</strong>
+            <small data-i18n="optMonitorDesc">
+              ページを開いた直後から本文の量を監視し、あとから JavaScript
+              が本文を削除・折りたたみしても、いちばん内容が多かった状態を変換できるようにします。
+              すべてのサイトを読み取る権限が必要です。
+            </small>
+          </span>
+        </label>
+        <p class="status" id="monitor-status"></p>
+
+        <label class="row">
+          <input type="checkbox" id="fetch-original" />
+          <span>
+            <strong data-i18n="optFetchTitle">サーバーの元 HTML も取り寄せて比べる</strong>
+            <small data-i18n="optFetchDesc">
+              変換時にページの URL をもう一度読み込み (可能ならブラウザのキャッシュから)、
+              JavaScript が動く前の HTML と内容を比べます。読み込みが 1 回増えます。
+            </small>
+          </span>
+        </label>
+
+        <label class="row row-range">
+          <span>
+            <strong data-i18n="optWaitTitle">変換前に待つ時間</strong>
+            <small data-i18n="optWaitDesc">DOM の変化が落ち着くまで待ってから変換します (遅延読み込み対策)。</small>
+          </span>
+          <span class="range">
+            <input type="range" id="wait" min="0" max="3000" step="100" />
+            <output id="wait-out"></output>
+          </span>
+        </label>
+      </section>
+
+      <section>
+        <h2 data-i18n="optionsSectionOutput">出力</h2>
+        <p class="note" data-i18n="optionsOutputNote">
+          タイトル見出し・出典リンク・フロントマターの有無は、変換結果のビューア画面の
+          「表示設定」から切り替えられます。
+        </p>
+      </section>
+    </main>
+    <script src="src/i18n.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

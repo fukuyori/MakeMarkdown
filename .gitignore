@@ -1,0 +1,5 @@
+.claude/
+.DS_Store
+web-ext-artifacts/
+dist/
+node_modules/

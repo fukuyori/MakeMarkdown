@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MakeMarkdown Privacy Policy</title>
+    <style>
+      body {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 32px 20px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.7;
+        color: #1f2937;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        margin-top: 2rem;
+        font-size: 1.2rem;
+      }
+
+      hr {
+        margin: 3rem 0;
+        border: none;
+        border-top: 1px solid #e5e7eb;
+      }
+
+      code {
+        background: #f3f4f6;
+        padding: 0.1em 0.35em;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>MakeMarkdown Privacy Policy</h1>
+    <p>Last updated: August 18, 2026</p>
+
+    <h2>Data processed by this extension</h2>
+    <p>
+      MakeMarkdown reads the content of a web page only when the user asks for it, by clicking the
+      toolbar button or pressing the keyboard shortcut. The page content is converted to Markdown
+      inside the browser and shown in the extension's own viewer tab.
+    </p>
+    <p>
+      If the user has enabled "Record the moment the page had the most content", the extension also
+      keeps a copy of the page body in the memory of that page while it is open, so that content
+      later removed by the page's own scripts can still be converted. This copy is never written to
+      disk and disappears when the page is closed.
+    </p>
+
+    <h2>Data stored by this extension</h2>
+    <ul>
+      <li>
+        Settings (theme, typeface, font size, content width, output options, waiting time, and the
+        two optional conversion features) are stored in the browser's local extension storage.
+      </li>
+      <li>
+        Conversion results are stored in the browser's session extension storage so the viewer tab
+        can display them. At most the 10 most recent results are kept, and all of them are deleted
+        when the browser is closed.
+      </li>
+    </ul>
+
+    <h2>Data sent to the developer or to third parties</h2>
+    <p>
+      None. MakeMarkdown does not send page content, settings, or any other data to the developer or
+      to any third party. It contains no analytics, no advertising, and no remotely hosted code.
+    </p>
+    <p>
+      The only network request the extension can make is to the address of the page being converted,
+      and only when the user has enabled "Also fetch the original HTML from the server and compare".
+      That request goes to the same site the user is already visiting.
+    </p>
+
+    <h2>Permissions</h2>
+    <ul>
+      <li><code>activeTab</code> — read the page in the tab where the user started a conversion.</li>
+      <li><code>scripting</code> — run the conversion scripts in that page.</li>
+      <li><code>storage</code> — store the settings and the conversion results described above.</li>
+      <li>
+        <code>*://*/*</code> (optional) — requested only when the user turns on "Record the moment
+        the page had the most content", and revoked when the user turns it off.
+      </li>
+    </ul>
+
+    <h2>Downloaded files</h2>
+    <p>
+      Markdown files are created in the browser and saved to the location the user's browser is
+      configured to use. They are not uploaded anywhere.
+    </p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy can be sent to the developer through the add-on listing.</p>
+
+    <hr />
+
+    <h1 lang="ja">MakeMarkdown プライバシーポリシー</h1>
+    <p lang="ja">最終更新日: 2026年8月18日</p>
+
+    <h2 lang="ja">この拡張機能が扱うデータ</h2>
+    <p lang="ja">
+      MakeMarkdown がページの内容を読み取るのは、ツールバーのボタンを押したときとキーボード
+      ショートカットを使ったときだけです。読み取った内容はブラウザ内で Markdown
+      に変換され、拡張機能のビューアタブに表示されます。
+    </p>
+    <p lang="ja">
+      「本文が最も多かった時点を記録する」を有効にしている場合は、そのページが開いている間だけ、
+      本文の複製をそのページのメモリ上に保持します。あとからページ側のスクリプトが本文を削除しても
+      変換できるようにするためです。この複製がディスクに書き込まれることはなく、ページを閉じると消えます。
+    </p>
+
+    <h2 lang="ja">この拡張機能が保存するデータ</h2>
+    <ul lang="ja">
+      <li>
+        設定 (テーマ、書体、文字サイズ、本文の幅、出力の内容、待ち時間、2 つの任意機能の on/off)
+        をブラウザのローカル拡張機能ストレージに保存します。
+      </li>
+      <li>
+        変換結果は、ビューアタブが表示するためにブラウザのセッション拡張機能ストレージに保存します。
+        保持するのは新しいものから 10 件までで、ブラウザを終了するとすべて消えます。
+      </li>
+    </ul>
+
+    <h2 lang="ja">開発者や第三者に送信されるデータ</h2>
+    <p lang="ja">
+      ありません。ページの内容も設定もその他のデータも、開発者や第三者に送信することはありません。
+      アクセス解析も広告も、外部から読み込むコードもありません。
+    </p>
+    <p lang="ja">
+      拡張機能が行いうる唯一の通信は、変換対象のページの URL への再取得だけで、これは
+      「サーバーの元 HTML も取り寄せて比べる」を有効にしたときに限られます。
+      通信先は利用者がすでに開いているサイトと同じです。
+    </p>
+
+    <h2 lang="ja">権限</h2>
+    <ul lang="ja">
+      <li><code>activeTab</code> — 変換を開始したタブのページを読み取るため。</li>
+      <li><code>scripting</code> — そのページで変換スクリプトを実行するため。</li>
+      <li><code>storage</code> — 上記の設定と変換結果を保存するため。</li>
+      <li>
+        <code>*://*/*</code> (任意) — 「本文が最も多かった時点を記録する」を有効にしたときだけ要求し、
+        無効にすると取り消します。
+      </li>
+    </ul>
+
+    <h2 lang="ja">ダウンロードしたファイル</h2>
+    <p lang="ja">
+      Markdown ファイルはブラウザ内で作られ、ブラウザの設定に従った場所に保存されます。
+      どこかにアップロードされることはありません。
+    </p>
+
+    <h2 lang="ja">問い合わせ</h2>
+    <p lang="ja">このポリシーについての問い合わせは、アドオンの掲載ページからお願いします。</p>
+  </body>
+</html>

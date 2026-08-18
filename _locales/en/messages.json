@@ -1,0 +1,85 @@
+{
+  "appName": { "message": "MakeMarkdown", "description": "Extension name" },
+  "appDescription": {
+    "message": "Convert the current page to Markdown, read it in a reader-style view, and download the .md file.",
+    "description": "Extension description"
+  },
+  "actionTitle": { "message": "Convert this page to Markdown" },
+  "commandDescription": { "message": "Convert this page to Markdown" },
+
+  "viewPreview": { "message": "Preview" },
+  "viewSource": { "message": "Markdown" },
+  "viewSwitchLabel": { "message": "Switch view" },
+  "btnCopy": { "message": "Copy" },
+  "btnDownload": { "message": "Download" },
+  "btnSettings": { "message": "Display settings" },
+
+  "panelTheme": { "message": "Theme" },
+  "themeAuto": { "message": "Auto" },
+  "themeLight": { "message": "Light" },
+  "themeSepia": { "message": "Sepia" },
+  "themeDark": { "message": "Dark" },
+  "panelFont": { "message": "Typeface" },
+  "fontSans": { "message": "Sans-serif" },
+  "fontSerif": { "message": "Serif" },
+  "panelFontSize": { "message": "Font size" },
+  "panelWidth": { "message": "Content width" },
+  "optTitle": { "message": "Include the page title as a heading" },
+  "optSource": { "message": "Include a source link" },
+  "optFront": { "message": "Add front matter" },
+
+  "sourceSelection": { "message": "Selection" },
+  "sourceLive": { "message": "Current DOM" },
+  "sourceSettled": { "message": "Current DOM (after it settled)" },
+  "sourceSnapshot": { "message": "Recorded state with the most content" },
+  "sourceOriginal": { "message": "Original HTML from the server" },
+  "badgeLongest": { "message": "longest of $1 states" },
+  "badgeFallback": { "message": "article detection failed; converted the whole page" },
+  "badgeChars": { "message": "$1 characters" },
+
+  "toastCopied": { "message": "Copied the Markdown" },
+  "toastCopyFailed": { "message": "Could not copy" },
+  "noticeNotFound": {
+    "message": "No conversion result was found. The browser may have been restarted, or the result may have been dropped because newer conversions took its place. Please convert the page again from the toolbar button."
+  },
+  "noticeConvertFailed": { "message": "Conversion failed." },
+  "noticeRenderFailed": { "message": "Could not display the result: $1" },
+  "viewerDocumentTitle": { "message": "$1 - Markdown" },
+  "mdSourcePrefix": { "message": "Source" },
+
+  "optionsTitle": { "message": "MakeMarkdown settings" },
+  "optionsLead": {
+    "message": "Use the toolbar button (or Alt+Shift+M) to convert the current page to Markdown. If text is selected on the page, only the selection is converted."
+  },
+  "optionsSectionTruncated": { "message": "For pages whose content gets cut off" },
+  "optMonitorTitle": { "message": "Record the moment the page had the most content" },
+  "optMonitorDesc": {
+    "message": "Watches how much body text a page has from the moment it opens, so that content later removed or collapsed by JavaScript can still be converted. This needs permission to read all sites."
+  },
+  "optFetchTitle": { "message": "Also fetch the original HTML from the server and compare" },
+  "optFetchDesc": {
+    "message": "Loads the page URL once more during conversion (from the browser cache when possible) and compares the HTML as it was before JavaScript ran. This adds one request."
+  },
+  "optWaitTitle": { "message": "Wait before converting" },
+  "optWaitDesc": { "message": "Waits until DOM changes settle before converting (helps with lazy loading)." },
+  "optionsSectionOutput": { "message": "Output" },
+  "optionsOutputNote": {
+    "message": "The title heading, source link, and front matter can be turned on and off from \"Display settings\" in the viewer."
+  },
+  "statusNoPermission": { "message": "Recording is stopped because permission to read all sites was not granted." },
+  "statusRecording": { "message": "Recording. It takes effect the next time you open a page." },
+  "statusPermissionDenied": { "message": "Could not enable this because permission was not granted." },
+  "statusLoadFailed": { "message": "Could not load the settings: $1" },
+  "unitSeconds": { "message": "$1 s" },
+
+  "errInternalPage": { "message": "This page (a browser internal page) cannot be converted." },
+  "errStorePage": { "message": "Extension stores cannot be read by extensions, so this page cannot be converted." },
+  "errReadFailed": { "message": "Could not read the page: $1" },
+  "errNoResult": { "message": "Could not obtain a conversion result." },
+  "errScriptLoad": { "message": "The conversion scripts could not be loaded." },
+  "errNoArticle": { "message": "No article content could be extracted from this page." },
+
+  "embedVideo": { "message": "Video" },
+  "embedAudio": { "message": "Audio" },
+  "embedGeneric": { "message": "Embedded content" }
+}
