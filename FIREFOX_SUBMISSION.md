@@ -62,10 +62,12 @@ MakeMarkdown は、いま見ているページの本文だけを Markdown に変
 - [ ] カテゴリ (3 つまで): 「ダウンロード管理」と「フィード／ニュース／ブログ」。
       3 つ目を選ぶなら「ブックマーク」。AMO に「仕事効率化」の分類は無い。
 - [ ] タグ: markdown, reader, export など。
-- [ ] ライセンスを選ぶ。
-- [ ] サポート用のメールアドレス / サイトを入力する。
+- [ ] ライセンス: **MIT License** を選ぶ (`LICENSE` と一致させる)。
+- [ ] サポート用のメールアドレス / サイトを入力する
+      (サイトは https://github.com/fukuyori/MakeMarkdown が使える)。
 - [ ] プライバシーポリシー欄に `PRIVACY_POLICY.md` の内容をそのまま貼り付ける
-      (AMO は URL ではなくテキストを入力する)。
+      (AMO は URL ではなくテキストを入力する)。公開版は
+      https://github.com/fukuyori/MakeMarkdown/blob/main/PRIVACY_POLICY.md 。
 - [ ] スクリーンショットを登録する。
       `screenshots/makemarkdown-ja-1-viewer-1280x800.png` など (英語版は `makemarkdown-en-*`)。
 

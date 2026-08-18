@@ -118,9 +118,15 @@ The extension does not collect or transmit user data. Page content is converted 
 
 ダッシュボードのデータ収集の項目は、すべて「収集しない」を選びます。
 
-プライバシーポリシーは **公開された URL の指定が必須** です。`privacy-policy.html` を
-どこか (GitHub Pages、Gist、自分のサイトなど) に公開し、その URL を入力します。
-内容は `PRIVACY_POLICY.md` と同じものです。
+プライバシーポリシーの URL には次を入力します (GitHub 上で公開済み)。
+
+```text
+https://github.com/fukuyori/MakeMarkdown/blob/main/PRIVACY_POLICY.md
+```
+
+HTML 版を使いたい場合は、GitHub Pages を有効にすると
+`https://fukuyori.github.io/MakeMarkdown/privacy-policy.html` でも公開できます
+(Settings → Pages → Source を main / root)。内容はどちらも同じです。
 
 ## 画像
 

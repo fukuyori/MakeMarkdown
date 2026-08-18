@@ -121,6 +121,7 @@ node tools/make-screenshots.mjs
 | `privacy-policy.html` | プライバシーポリシー (公開・URL 指定用) |
 | `PRIVACY_POLICY.md` | プライバシーポリシー (AMO の入力欄に貼る用) |
 | `FIREFOX_SUBMISSION.md` / `STORE_SUBMISSION.md` | ストア登録時の入力内容と確認事項 |
+| `LICENSE` | MIT ライセンス |
 
 ## 権限
 
@@ -133,3 +134,8 @@ node tools/make-screenshots.mjs
 
 変換結果は外部に送信しません。ページの内容はブラウザ内 (`storage.session`) に
 一時保存されるだけで、ブラウザを終了すると消えます。
+詳細は [プライバシーポリシー](PRIVACY_POLICY.md) を参照してください。
+
+## ライセンス
+
+MIT License (`LICENSE` を参照)。
