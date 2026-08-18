@@ -35,7 +35,7 @@ Firefox 用の `background.scripts` が警告になり、バックグラウン�
 MakeMarkdown
 ```
 
-概要 (132 文字以内):
+概要 (132 文字以内・日本語 / 英語):
 
 ```text
 表示中のページをMarkdownに変換し、リーダービュー風に表示・ダウンロードできます。
@@ -45,7 +45,7 @@ MakeMarkdown
 Convert the current page to Markdown, read it in a reader-style view, and download the .md file.
 ```
 
-説明:
+説明 (日本語 / 英語):
 
 ```text
 MakeMarkdown は、いま見ているページの本文だけを Markdown に変換して、リーダービューのような画面で読み、.md ファイルとして保存できる拡張機能です。
@@ -64,6 +64,25 @@ MakeMarkdown は、いま見ているページの本文だけを Markdown に変
 - 「続きを読む」などで隠されている本文も、十分な分量があれば残します。
 
 この拡張機能は、ページの内容や設定を外部に送信しません。広告も、アクセス解析も、外部から読み込むコードもありません。変換結果はブラウザ内に一時保存されるだけで、ブラウザを終了すると消えます。
+```
+
+```text
+MakeMarkdown converts just the body of the page you are reading into Markdown, shows it in a reader-style view, and saves it as a .md file.
+
+What it does:
+- Converts the page to Markdown from the toolbar button (or Alt+Shift+M).
+- Writes headings, lists, tables, code blocks, quotes, links, and images as Markdown (GFM).
+- Switches the result between a rendered preview and the Markdown source.
+- Lets you read with a theme (auto/light/sepia/dark), typeface, font size, and content width of your choice.
+- Lets you choose whether the title heading, the source link, and front matter go into the output.
+- Converts only the selection when text is selected on the page.
+- Copies the Markdown to the clipboard, or downloads it as a .md file.
+
+For pages whose content is cut off by JavaScript:
+- It compares the DOM at the moment the button was pressed, the DOM after changes settled, the state recorded from the moment the page opened, and the original HTML from the server, and uses whichever has the most content.
+- Body text hidden behind a "read more" control is kept when it holds enough text.
+
+The extension does not send page content or settings anywhere. There are no ads, no analytics, and no remotely hosted code. Conversion results are kept in the browser only and are discarded when the browser closes.
 ```
 
 カテゴリ:

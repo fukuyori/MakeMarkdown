@@ -31,7 +31,7 @@ npx web-ext lint --source-dir dist/firefox   # パッケージの中身を検証
 MakeMarkdown
 ```
 
-要約 (Summary):
+要約 (Summary・日本語 / 英語):
 
 ```text
 表示中のページをMarkdownに変換し、リーダービュー風に表示・ダウンロードできます。
@@ -41,7 +41,7 @@ MakeMarkdown
 Convert the current page to Markdown, read it in a reader-style view, and download the .md file.
 ```
 
-説明 (Description):
+説明 (Description・日本語 / 英語):
 
 ```text
 MakeMarkdown は、いま見ているページの本文だけを Markdown に変換して、リーダービューのような画面で読み、.md ファイルとして保存できるアドオンです。
@@ -57,6 +57,22 @@ MakeMarkdown は、いま見ているページの本文だけを Markdown に変
 本文を JavaScript であとから削除・折りたたみするページに備えて、変換時の DOM、変化が落ち着いたあとの DOM、ページを開いた直後から記録していた状態、サーバーから取得した元の HTML を比べ、いちばん内容が多いものを採用します。
 
 ページの内容や設定を外部に送信することはありません。変換結果はブラウザ内に一時保存されるだけで、ブラウザを終了すると消えます。
+```
+
+```text
+MakeMarkdown converts just the body of the page you are reading into Markdown, shows it in a reader-style view, and saves it as a .md file.
+
+- Converts the page to Markdown from the toolbar button (or Alt+Shift+M).
+- Writes headings, lists, tables, code blocks, quotes, links, and images as Markdown (GFM).
+- Switches between a rendered preview and the Markdown source.
+- Lets you read with a theme (auto/light/sepia/dark), typeface, font size, and content width of your choice.
+- Lets you choose whether the title heading, the source link, and front matter go into the output.
+- Converts only the selection when text is selected on the page.
+- Copies the Markdown, or downloads it as a .md file.
+
+For pages that remove or collapse their content with JavaScript, it compares the DOM at conversion time, the DOM after changes settled, the state recorded from the moment the page opened, and the original HTML from the server, and uses whichever has the most content.
+
+Page content and settings are never sent anywhere. Conversion results are kept in the browser only and are discarded when the browser closes.
 ```
 
 - [ ] カテゴリ (3 つまで): 「ダウンロード管理」と「フィード／ニュース／ブログ」。
